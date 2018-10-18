@@ -7,7 +7,7 @@ package main.enums;
  */
 public enum SubtitleKey {
   EPISODE("s"),
-  DATE("d"),
+  DATETIME("d"),
   LINK("a"),
   NAME("n");
   
@@ -17,7 +17,8 @@ public enum SubtitleKey {
       this.value = value;
   }
 
-  public String getValue() {
+  @Override
+  public String toString() {
       return value;
   }
 }

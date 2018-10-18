@@ -1,12 +1,16 @@
 package main;
 
+import java.time.LocalDateTime;
+
 public class Subtitle {
-  private String episode;
-  private String updateTime;
-  private String link;
-  private String name;
-  
-  public Subtitle() {
-    
+  public Episode episode;
+  public LocalDateTime updateDateTime;
+  public String link;
+  public String name;
+
+  @Override
+  public String toString() {
+    return String.format("Subtitle [episode=%s, updateTime=%s, link=%s, name=%s]", episode,
+        updateDateTime, link, name);
   }
 }
