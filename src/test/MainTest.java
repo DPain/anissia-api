@@ -29,8 +29,8 @@ public class MainTest {
 
   @Test
   public void subtitleTest() {
-    // �ڵ� �� = 4289 yields []
-    // �Ҿƿ� = 4075 not [] 
+    // 코드 기어스 = 4289 yields []
+    // 소아온 = 4075 not [] 
     
     LinkedList<Subtitle> result = null;
     try {
