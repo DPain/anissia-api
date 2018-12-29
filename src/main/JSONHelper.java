@@ -11,6 +11,12 @@ import org.json.JSONObject;
 import main.enums.AnimeKey;
 import main.enums.SubtitleKey;
 
+/**
+ * JSONHelper
+ * 
+ * @author DPain
+ *
+ */
 public class JSONHelper {
   public static DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HHmm");
   public static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd");

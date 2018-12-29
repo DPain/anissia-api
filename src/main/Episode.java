@@ -7,14 +7,20 @@ enum Type {
 }
 
 
+/**
+ * Episode
+ * 
+ * @author DPain
+ *
+ */
 public class Episode {
-  public int num;
-  public int subNum;
+  public Optional<Integer> num;
+  public Optional<Integer> subNum;
   public Optional<Type> type;
 
   public Episode() {
-    num = 0;
-    subNum = 0;
+    num = Optional.empty();
+    subNum = Optional.empty();
     type = Optional.empty();
   }
 

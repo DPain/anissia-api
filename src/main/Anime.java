@@ -3,6 +3,12 @@ package main;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+/**
+ * Anime
+ * 
+ * @author DPain
+ *
+ */
 public class Anime {
   public int id;
   public String name;

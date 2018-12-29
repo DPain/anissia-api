@@ -5,9 +5,9 @@ import java.text.ParseException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Optional;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -19,6 +19,12 @@ import org.json.JSONObject;
 import main.enums.Category;
 
 
+/**
+ * AnissiaAPI
+ * 
+ * @author DPain
+ *
+ */
 public class AnissiaAPI {
   private final String categoryAddress = "https://www.anissia.net/anitime/list?w=";
   private final String subtitleAddress = "https://www.anissia.net/anitime/cap?i=";
@@ -32,7 +38,7 @@ public class AnissiaAPI {
     LinkedList<Anime> result = new LinkedList<Anime>();
 
     StringBuilder builder = new StringBuilder(categoryAddress).append(cat.getParam());
-    String resp = AnissiaAPI.sendGetResponse(builder.toString());
+    String resp = AnissiaAPI.sendGETResponse(builder.toString());
     JSONArray jArray = new JSONArray(resp);
 
     Iterator<Object> iter = jArray.iterator();
@@ -50,7 +56,7 @@ public class AnissiaAPI {
     LinkedList<Subtitle> result = new LinkedList<Subtitle>();
 
     StringBuilder builder = new StringBuilder(subtitleAddress).append(id);
-    String resp = AnissiaAPI.sendGetResponse(builder.toString());
+    String resp = AnissiaAPI.sendGETResponse(builder.toString());
     JSONArray jArray = new JSONArray(resp);
     Iterator<Object> iter = jArray.iterator();
     while (iter.hasNext()) {
@@ -65,19 +71,17 @@ public class AnissiaAPI {
   public static Episode getEpisode(String str) throws ParseException {
     Episode episode = new Episode();
 
-    try {
-      episode.num = Integer.parseInt(str.substring(0, 4));
-    } catch (NumberFormatException e) {
-      episode.num = 0;
-      // #TODO Implement Episode Type
+    if (StringUtils.isNumeric(str)) {
+      episode.num = Optional.of(Integer.parseInt(str.substring(0, 4)));
+      episode.subNum = Optional.of(Integer.parseInt(str.substring(4)));
+    } else {
+      episode.type = Optional.of(Type.valueOf(str));
     }
-
-    episode.subNum = Integer.parseInt(str.substring(4));
 
     return episode;
   }
 
-  public static String sendGetResponse(String resp) throws IOException {
+  public static String sendGETResponse(String resp) throws IOException {
     String output;
 
     CloseableHttpClient httpclient = HttpClients.createDefault();

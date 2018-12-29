@@ -2,7 +2,7 @@
 ### Quick summary: ###
 This is a Java wrapper for the Anissia API.
 ### Version: ###
-0.0.1
+0.0.2
 
 ## How do I get set up? ##
 ### Summary of set up: ###
@@ -10,6 +10,7 @@ The program requires several libraries which is included in the contained in the
 ### Dependencies: ###
 	* Java 1.8
 	* org.apache.httpcomponents 4.5.6
+	* org.apache.commons 3.8.1
 	* junit 4.12
 	* org.json 20180813
 

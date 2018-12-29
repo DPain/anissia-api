@@ -2,6 +2,12 @@ package main;
 
 import java.time.LocalDateTime;
 
+/**
+ * Subtitle
+ * 
+ * @author DPain
+ *
+ */
 public class Subtitle {
   public Episode episode;
   public LocalDateTime updateDateTime;

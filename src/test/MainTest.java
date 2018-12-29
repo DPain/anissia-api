@@ -8,13 +8,19 @@ import main.AnissiaAPI;
 import main.Subtitle;
 import main.enums.Category;
 
+/**
+ * MainTest
+ * 
+ * @author DPain
+ *
+ */
 public class MainTest {
-  AnissiaAPI api;
+  public AnissiaAPI api;
 
   public MainTest() {
     api = new AnissiaAPI();
   }
-  
+
   @Test
   public void mondayTest() {
     LinkedList<Anime> result = null;
@@ -22,6 +28,7 @@ public class MainTest {
       result = api.getCategoryInfo(Category.MONDAY);
 
       System.out.println(Arrays.toString(result.toArray()));
+      assert (true);
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -30,13 +37,14 @@ public class MainTest {
   @Test
   public void subtitleTest() {
     // 코드 기어스 = 4289 yields []
-    // 소아온 = 4075 not [] 
-    
+    // 소드 아트 온라인 앨리시제이션 = 4075 not []
+
     LinkedList<Subtitle> result = null;
     try {
       result = api.getSubtitleInfo(4075);
 
       System.out.println(Arrays.toString(result.toArray()));
+      assert (true);
     } catch (Exception e) {
       e.printStackTrace();
     }
